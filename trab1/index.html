@@ -4,29 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="css/geral.css" > 
+    <title>Página Saudável</title>
 </head>
 
 <body>
-    <header><h1>Banca da Amazônia</h1></header>
+    <header><h1>Explore novidades saudáveis!</h1></header>
 
 <main> 
- <div id="painelGrafico">
-cartão
-<figure>
-    <img src="img/maca.png">
+ <div id="painelGrafico" class="opcoesBorda">
+<figure class="imagem">
+    <img id="frutaImagem" src="img/selecioneAlgo.png" alt="imagem de fruta">
 </figure>
+<div id="textoMutavel" class="opcoesBorda"> <p>Você sabia que, para cada célula no seu corpo que contém o seu DNA, existem dez bactérias habitando seu corpo?</p>
+</div>
  </div>
+<menu>
+    <div class="opcoesBorda">
 
- <form id="controles">
-  cor de fundo<br>
-  borda<br>
-  texto<br>
-  figura<br>
-  etc<br>
-  tamanho<br>
-  mover<br>
-  alteração em elemento textual<br>
- </form>
+
+ <form id="painelControle">
+    <h1>Teste as possibilidades!</h1>
+    <div class="opcoesBorda">
+        <h2>Imagem</h2>
+        <br>
+    <div id="opcoesRadio">
+        <label> Selecione uma opção de fruta:<br></label>
+        <input type="radio" id="imgMaca" name="seletor"> 
+        <label for="imgMaca">Maçã<br></label>
+        <input type="radio" id="imgMelancia" name="seletor">
+        <label for="imgAbacate">Melancia<br></label>
+        <input type="radio" id="imgMorango" name="seletor">
+        <label for="imgOutro">Morango<br></label>
+      </div>    
+      <br>
+  
+      <h5>Mude o tamanho da imagem usando a barra abaixo:</h5><br>
+      <input type="range"  id="tamanhador" min="0" max="180" step="1" value="0">
+    </div>
+    <div class="opcoesBorda">
+        <h2>Texto</h2>
+    
+        <label for="textoMutavelAlinhamento"><h5>Selecione uma opção para alinhar o texto:</h5></label><br>
+        <select id="textoMutavelAlinhamento" name="textoMutavelAlinhamento">
+           <option value="center">Centro</option>
+           <option value="left">Esquerda</option>
+           <option value="right">Direita</option>
+        </select>
+        <br><br>
+       
+        <label for="textoMutavelAlterador"><h5>Selecione uma opção para mudar o texto:</h5></label><br>
+        <select id="textoMutavelAlterador" name="textoMutavelAlterador">
+           <option value="bacterias">Bactérias</option>
+           <option value="exercicio">Exercício</option>
+           <option value="cerebro">Cérebro</option>
+        </select>
+         </div>
+    <div class="opcoesBorda">
+        <h2>Cores</h2>
+        <br>
+<h5>Altere as bordas com os botões abaixo:</h5><br>
+
+  <input type="button" id="botaoBordaAzul" value=" Alterar para bordas azuis ">
+  <br><br>
+  <input type="button" id="botaoBordaPreta" value=" Alterar para bordas pretas ">
+  <br><br>
+  <input type="button" id="botaoBordaVerde" value=" Alterar para bordas verdes ">
+  <br><br>
+  
+  <h5>Altere a cor de fundo com os botões abaixo:</h5><br>
+        <input type="color" id="botaoCor"> <b>Cor de fundo</b><br><br>
+  <input type="button" id="botaoCorZero" value=" Restaurar cor original ">
+  
+ 
+</div>
+
+     <div class="caixaEscrever">
+        <br>
+        <label for="nomeFruta">Quais outros alimentos você consome?<br></label>
+        <input type="text" id="nomeFruta" name="nomeFruta"><br>
+        <button id="enviar"> Enviar</button>
+       </div>
+    </form>
+</div>
+ </menu>
  <!-- Evite possíveis erros do usuário (impedir inserção de dados errados, apagar/desabilitar campos já  respondidos, limitar o número de opções,...) -->
 </main>
 
@@ -35,6 +95,95 @@ O gadget deve ser responsivo e rodar no desktop e no celular:
 • deve passar pelo validador da w3c sem erros (https://validator.w3.org/). Em todas as fases do gadget.
 • não deve apresentar erros pegos pelo console do JavaScript(JS) dos navegadores.
 • Usar css, bootstrap ou outro framework css para dar um bom visual ao gadget. -->
+
+<script language="JavaScript">
+
+// Cor de fundo
+botaoCor.addEventListener('input', function() {
+    document.body.style.backgroundColor = botaoCor.value;
+});
+botaoCorZero.addEventListener('click', function() {
+            document.body.style.backgroundColor = "#c1d8a1";
+
+        });
+// Bordas
+let opcoesBorda = document.querySelectorAll(".opcoesBorda");
+
+botaoBordaVerde.addEventListener('click', function() {
+        opcoesBorda.forEach(function(div) {
+            div.style.borderColor = "green";
+        });
+    });
+
+    botaoBordaAzul.addEventListener('click', function() {
+        opcoesBorda.forEach(function(div) {
+            div.style.borderColor = "blue";
+        });
+    });
+
+    botaoBordaPreta.addEventListener('click', function() {
+        opcoesBorda.forEach(function(div) {
+            div.style.borderColor = "black";
+        });
+    });
+
+    // Tamanho da imagem
+  
+
+    document.getElementById('tamanhador').addEventListener('input', function() {
+    let tamanho = (tamanhador.value / 100) * 300;
+    frutaImagem.style.width = `${tamanho}px`;
+    frutaImagem.style.height = 'auto';
+});
+
+// Radio
+    let frutaImagem = document.getElementById('frutaImagem');
+    
+    document.querySelectorAll('input[name="seletor"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+            if (document.getElementById('imgMaca').checked) {
+                frutaImagem.src = 'img/maca.png';
+                frutaImagem.alt = 'Imagem de Maçã';
+            } else if (document.getElementById('imgMelancia').checked) {
+                frutaImagem.src = 'img/melancia.png';
+                frutaImagem.alt = 'Imagem de Melancia';
+            } else if (document.getElementById('imgMorango').checked) {
+                frutaImagem.src = 'img/morango.png';
+                frutaImagem.alt = 'Imagem de morangos';
+            }
+        });
+    });
+            
+// Texto Mutável 
+
+let textoMutavel = document.getElementById('textoMutavel').querySelector('p');
+
+document.getElementById('textoMutavelAlinhamento').addEventListener('change', function() {
+    textoMutavel.style.textAlign = document.getElementById('textoMutavelAlinhamento').value;
+});
+
+document.getElementById('textoMutavelAlterador').addEventListener('change', function() {
+    switch (document.getElementById('textoMutavelAlterador').value) {
+        case 'bacterias':
+            textoMutavel.textContent = "Você sabia que, para cada célula no seu corpo que contém o seu DNA, existem dez bactérias habitando seu corpo?";
+            break;
+        case 'exercicio':
+            textoMutavel.textContent = "Ao realizar exercícios simples como uma caminhada, você aumenta a taxa de oxigenação do corpo todo e remove coágulos locais que se forma espontaneamente com o passar do tempo.";
+            break;
+        case 'cerebro':
+            textoMutavel.textContent = "O cérebro humano desafia lei da entropia: quanto mais é utilizado, melhor se torna o seu desempenho! Quanto menos recebe estímulos, menos capaz vai se tornando. Isso se chama 'neuroplasticidade'.";
+            break;
+        default:
+            textoMutavel.textContent = "Você sabia que, para cada célula no seu corpo que contém o seu DNA, existem dez bactérias habitando seu corpo?";
+            break;
+    }
+});
+
+document.getElementById('enviar').addEventListener('click', function() {
+
+alert("Você respondeu: " + document.getElementById('nomeFruta').value);
+});
+</script>
 
 </body>
 </html>
