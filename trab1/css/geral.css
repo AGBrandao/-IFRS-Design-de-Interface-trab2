@@ -9,51 +9,12 @@ body {
 header {
   text-align: center;
   background-color:green ;
-  margin: 5vw auto;
+  margin: 2vw auto;
   padding: 1vw;
   min-width: 30vw;
   max-width: 90vw;
   opacity: 1;
 }
-h1 {
-  text-align: center;
-}
-h2 {
-  text-align: center;
-}
-h5 {
-  text-align: left;
-}
-p {
-  text-align: center;
-}
-#painelGrafico {
-
-}
-.imagem {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 2vw;
-  width: 100%;
-  height: 100%;
-}
-#painelControle {
-  text-align: left;
-  margin: 2vw;
-
-}
-.opcoesBorda {
-  border:5px solid green;
-  margin: 2vw;
-  padding: 2vw;
-}
-
-.caixaEscrever {
-  text-align: center;
-}
-
 header:hover {
   animation: colorChange  1s forwards;
 }
@@ -68,16 +29,80 @@ header:hover {
     background-color: green;
 }
 }
+h1 {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+h5 {
+  text-align: left;
+}
+p {
+  text-align: center;
+  font-size: auto;
+}
+.imagem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  object-fit: contain;
+}
+#frutaImagem {
+  width: auto;
+  height: auto;
+}
+#painelControle {
+  text-align: left;
+}
+.opcoesBorda {
+  border:5px solid green;
+  margin: 2vw;
+  padding: 2vw;
+  background-color: #c1d8a1;
+}
+.caixaEscrever {
+  text-align: center;
+}
 /* -------------------------------------------- */
-@media only screen and  (max-width: 960px) {
-  .flex-container {
-    flex-direction: column;
-    align-items: center;
+@media only screen and  (min-width: 360px) {
+  p {
+    font-size: 16px;
   }   
+  header {
+    font-size: 16px;
+  }
+  #frutaImagem {
+    width: 40%;
+    height: auto;
+  }
+}
+@media only screen and  (min-width: 720px) {
+  p {
+    font-size: 22px;
+  }   
+  header {
+    font-size: 24px;
+  }
+  #frutaImagem {
+    width: auto;
+    height: auto;
+  }
+}
+@media only screen and  (min-width: 960px) {
+  p {
+    font-size: 26px;
+  }   
+  header {
+    font-size: 26px;
+  }
 }
 @media only screen and (min-width: 1201px) {
-  .card {
-    max-width: 350px;
+  p {
+    font-size: 30px;
   }
-
+  header {
+    font-size: 34px;
+  }
 }
