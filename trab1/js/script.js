@@ -66,7 +66,7 @@ document.getElementById('textoMutavelAlinhamento').addEventListener('change', fu
 document.getElementById('textoMutavelAlterador').addEventListener('change', function() {
     switch (document.getElementById('textoMutavelAlterador').value) {
         case 'bacterias':
-            textoMutavel.textContent = "Você sabia que, para cada célula no seu corpo que contém o seu DNA, existem dez bactérias habitando seu corpo?";
+            textoMutavel.textContent = "Você sabia que, para cada célula que contém o seu DNA, existem dez bactérias habitando seu corpo?";
             break;
         case 'exercicio':
             textoMutavel.textContent = "Ao realizar exercícios simples como uma caminhada, você aumenta a taxa de oxigenação do corpo todo e remove coágulos locais que se forma espontaneamente com o passar do tempo.";
@@ -75,7 +75,7 @@ document.getElementById('textoMutavelAlterador').addEventListener('change', func
             textoMutavel.textContent = "O cérebro humano desafia lei da entropia: quanto mais é utilizado, melhor se torna o seu desempenho! Quanto menos recebe estímulos, menos capaz vai se tornando. Isso se chama 'neuroplasticidade'.";
             break;
         default:
-            textoMutavel.textContent = "Você sabia que, para cada célula no seu corpo que contém o seu DNA, existem dez bactérias habitando seu corpo?";
+            textoMutavel.textContent = "Você sabia que, para cada célula que contém o seu DNA, existem dez bactérias habitando seu corpo?";
             break;
     }
 });
