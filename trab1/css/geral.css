@@ -57,15 +57,16 @@ text-align: left;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  max-width: 90vw;
+  margin: auto;
 }
-#frutaImagem {
-  width: auto;
+.imagem img {
+  max-width: 100%;
   height: auto;
 }
 #painelGrafico {
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  
+  grid-template-rows: 1fr 1fr 1fr;  
 }
 .opcoesBorda {
   border:5px solid green;
@@ -82,8 +83,6 @@ text-align: left;
   text-align: center;
 }
 #botttomImage {
-  max-width: 90vw;
-  max-height: auto;
   margin-bottom: 4vw;
   border: 1px solid black;
 }
