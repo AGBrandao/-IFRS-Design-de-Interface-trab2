@@ -65,6 +65,12 @@ p {
 .caixaEscrever {
   text-align: center;
 }
+#botttomImage {
+  max-width: 90vw;
+  max-height: auto;
+  margin-bottom: 4vw;
+  border: 1px solid black;
+}
 /* -------------------------------------------- */
 @media only screen and  (min-width: 360px) {
   p {
