@@ -11,24 +11,25 @@
     <header><h1>Explore novidades saudáveis!</h1></header>
 
 <main> 
+    <div id="painelMaior">
  <div id="painelGrafico" class="opcoesBorda">
     <h2>Painel</h2>
-    <br>
+    <div>
 <figure class="imagem">
     <img id="frutaImagem" src="img/selecioneAlgo.png" alt="imagem ausente">
 </figure>
-<br>
+</div>
 <div id="textoMutavel" class="opcoesBorda"> <p>Você sabia que, para cada célula que contém o seu DNA, existem dez bactérias habitando seu corpo?</p>
 </div>
  </div>
 
     <div class="opcoesBorda">
-
+        <h2>Controles</h2>
  <form id="painelControle">
-    <h1>Teste as possibilidades!</h1>
-    <div class="opcoesBorda">
+
+    <div id="imagem" class="opcoesBorda interno">
         <h2>Imagem</h2>
-        <br>
+        
     <div id="opcoesRadio">
         <label> Selecione uma opção de fruta:<br></label>
         <input type="radio" id="imgMaca" name="seletor"> 
@@ -38,54 +39,63 @@
         <input type="radio" id="imgMorango" name="seletor">
         <label>Morango<br></label>
       </div>    
-      <br>
-  
-      <h5>Mude o tamanho da imagem usando a barra abaixo:</h5><br>
+      
+      <div>
+      <label for="tamanhador">Mude o tamanho da imagem usando a barra abaixo:<br></label>
+      
       <input type="range"  id="tamanhador" min="0" max="180" step="1" value="90">
     </div>
-    <div class="opcoesBorda">
+    </div>
+    <div id="texto" class="opcoesBorda interno">
         <h2>Texto</h2> 
-        <br>   
-        <label for="textoMutavelAlinhamento"><h5>Selecione uma opção para alinhar o texto:</h5></label><br>
+        <div>
+        <label for="textoMutavelAlinhamento">Selecione uma opção para alinhar o texto:<br></label>
+        
         <select id="textoMutavelAlinhamento" name="textoMutavelAlinhamento">
            <option value="center">Centro</option>
            <option value="left">Esquerda</option>
            <option value="right">Direita</option>
         </select>
-        <br><br>
-       
-        <label for="textoMutavelAlterador"><h5>Selecione uma opção para mudar o texto:</h5></label><br>
+    </div>
+       <div>
+        <label for="textoMutavelAlterador">Selecione uma opção para mudar o texto:<br></label>
+        
         <select id="textoMutavelAlterador" name="textoMutavelAlterador">
            <option value="bacterias">Bactérias</option>
            <option value="exercicio">Exercício</option>
            <option value="cerebro">Cérebro</option>
         </select>
+    </div>
          </div>
 
-    <div class="opcoesBorda">
+    <div id="cores" class="opcoesBorda interno">
         <h2>Cores</h2>
-        <br>
-<h5>Altere as bordas com os botões abaixo:</h5><br>
+<div>
+<label>Altere as bordas com os botões abaixo:<br><br></label>
 
-  <input type="button" id="botaoBordaAzul" value=" Alterar para bordas azuis ">
-  <br><br>
-  <input type="button" id="botaoBordaPreta" value=" Alterar para bordas pretas ">
-  <br><br>
-  <input type="button" id="botaoBordaVerde" value=" Alterar para bordas verdes ">
-  <br><br>
+
+  <input type="button" id="botaoBordaAzul" value=" Alterar para bordas azuis "><br><br>
   
-  <h5>Altere a cor de fundo com os botões abaixo:</h5><br>
+  <input type="button" id="botaoBordaPreta" value=" Alterar para bordas pretas "><br><br>
+  
+  <input type="button" id="botaoBordaVerde" value=" Alterar para bordas verdes "><br><br>
+  
+</div>
+<div>
+<label>Altere a cor de fundo com os botões abaixo:<br><br></label>
+  
         <input type="color" id="botaoCor"> <b>Cor de fundo</b><br><br>
   <input type="button" id="botaoCorZero" value=" Restaurar cor original ">
 </div>
-
+</div>  
      <div class="caixaEscrever">
-        <br>
-        <label for="nomeFruta"><h2>Quais outros alimentos você consome?</h2></label><br>
-        <input type="text" id="nomeFruta" name="nomeFruta"><br><br>
+        
+        <label for="nomeFruta">Quais outros alimentos você consome?<br></label>
+        <input type="text" id="nomeFruta" name="nomeFruta"><br>
         <button id="enviar"> Enviar</button>
        </div>
     </form>
+</div>
 </div>
 <div>
     <h1>Seja saudável você também!</h1>
@@ -100,3 +110,5 @@
 <script src="js/script.js"></script>
 </body>
 </html>
+
+<!-- validator -->
