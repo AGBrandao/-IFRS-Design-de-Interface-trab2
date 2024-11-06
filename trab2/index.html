@@ -1,1 +1,193 @@
+<!DOCTYPE >
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    </head>
+	<body>
+		<div class="fundo" id="fundo">
+			<b>Fundo</b>
+			<div id="inimigo" >
+				Akuma
+			</div>
+			<div id="jogador">
+				Ryu
+			</div>
+		</div>	
 
+		<div class="painel">
+			<button type="button"  id="iniciar" >Iniciar</button><br><hr>
+			<button type="button"  id="acima" >Acima</button><br>
+			<button type="button"  id="esquerda">Esquerda</button>
+			<button type="button"  id="direita" >Direita</button><br>
+			<button type="button"  id="baixo" >Abaixo</button><hr>
+			<button type="button"  id="atirar">Hadou-ken!</button>
+			<hr>
+		
+		</div>
+		<style>
+#fundo {
+     position: absolute;
+     top: 5vw;
+     left:5vw;
+     width: 90vw;
+     height: 60vw;
+     background-color: black;
+     text-align: center;
+     color:green;
+	}
+
+#jogador {
+    position: absolute; 
+    top: 5vw; 
+    left: 5vw; 
+    width: 5vw; 
+    height: 5vw; 
+    background-color: white; 
+    
+}
+#inimigo {
+    position: absolute;
+    top: 15vw;
+    left: 80vw; 
+    width: 5vw; 
+    height: 5vw; 
+    background-color: red; 
+    
+}
+.painel {
+    position: absolute;
+     top: 67vw; 
+     left:10vw; 
+     text-align: center;
+
+}  
+.bullets {
+    position: absolute;
+    top: 34vw;
+    width: 4vw;
+    height: 2vw;
+    background-color: aqua;
+}
+		</style>
+		<script>
+//Funções
+function iniciar() {
+	document.querySelector("#jogador").style.left="10vw";
+	document.querySelector("#jogador").style.top="10vw";
+
+	timerColisao = setInterval("colisao()", 5);
+
+
+	document.querySelector("#acima").addEventListener("click", ()=>{move('acima')});
+	document.querySelector("#esquerda").addEventListener("click",()=>{ move('esquerda')});
+	document.querySelector("#direita").addEventListener("click",()=>{ move('direita')});
+	document.querySelector("#baixo").addEventListener("click",()=>{ move('baixo')});
+	document.querySelector("#atirar").addEventListener("click",()=>{ atirar()});
+	
+	document.querySelector("#iniciar").style.visibility="hidden";
+}
+
+// Mover jogador com botões
+function move(Direcao) {	
+	let jogador = document.querySelector("#jogador");
+	let jogadorLeft= parseInt(getComputedStyle(jogador).left);
+	let jogadorTop= parseInt(getComputedStyle(jogador).top);
+	let jogadorWidth= parseInt(getComputedStyle(jogador).width);
+	let jogadorHeight= parseInt(getComputedStyle(jogador).height);
+	let fundoWidth= parseInt(getComputedStyle(fundo).width);
+	let fundoHeight= parseInt(getComputedStyle(fundo).height);
+	if (Direcao == "direita") {
+		jogador.style.left = jogadorLeft+15;
+		if ( jogadorLeft >= (fundoWidth  - jogadorWidth)/2){
+			jogador.style.left = (fundoWidth)/2;
+		}
+	}
+	if (Direcao == "esquerda") {
+		jogador.style.left = jogadorLeft-15;
+		if ( jogadorLeft <= (0)){
+			jogador.style.left = 0;
+		}
+	}
+	if (Direcao == "acima") {
+		jogador.style.top = jogadorTop-15;
+		if ( jogadorTop <= (0)){
+			jogador.style.top = 0;
+		}
+	}
+	if (Direcao == "baixo") {
+		jogador.style.top = jogadorTop+15;
+		if ( jogadorTop >= (fundoHeight - jogadorHeight)){
+			jogador.style.top = (fundoHeight - jogadorHeight);
+		}
+	}
+}
+function atirar(){
+	if(podeAtirar==true){
+		bala = document.createElement("div");
+		bala.classList.add("bullets");
+		bala.style.left=parseInt(getComputedStyle(jogador).left);
+		bala.style.top=parseInt(getComputedStyle(jogador).top);
+		fundo.appendChild(bala);
+		podeAtirar=false;
+		timerBala = setInterval("moveBala(bala)",10);
+	}
+}
+function moveBala(bala){
+	let fundoWidth= parseInt(getComputedStyle(fundo).width);
+	let balaLeft =  parseInt(getComputedStyle(bala).left);
+	bala.style.left=balaLeft+10;
+	if (balaLeft >= fundoWidth)
+	{
+		bala.parentElement.removeChild(bala); 
+		clearInterval(timerBala);
+		podeAtirar=true;
+	}
+}
+function colisao(){
+
+	let jogador = document.querySelector("#jogador");
+	let inimigo = document.querySelector("#inimigo");
+	let bala = document.querySelector("#bala");
+
+//pega os dados do jogador
+let jogadorLeft= parseInt(getComputedStyle(jogador).left);
+let jogadorTop= parseInt(getComputedStyle(jogador).top);
+let jogadorHeight= parseInt(getComputedStyle(jogador).height);
+let jogadorWidth= parseInt(getComputedStyle(jogador).width);
+
+//pega os dados do inimigo
+let inimigoLeft= parseInt(getComputedStyle(inimigo).left);
+let inimigoTop= parseInt(getComputedStyle(inimigo).top);
+let inimigoHeight= parseInt(getComputedStyle(inimigo).height);
+let inimigoWidth= parseInt(getComputedStyle(inimigo).width);
+
+//pega os dados da bala
+let balaLeft= parseInt(getComputedStyle(bala).left);
+let balaTop= parseInt(getComputedStyle(bala).top);
+let balaHeight= parseInt(getComputedStyle(bala).height);
+let balaWidth= parseInt(getComputedStyle(bala).width);
+
+
+//se bala e inimigo colidirem reduz HP do inimigo
+if (((balaLeft + balaWidth >= inimigoLeft)&&(balaLeft <= inimigoLeft + inimigoWidth))&&
+	((balaTop + inimigoHeight>= div2Top)&&(balaTop <= inimigoTop + inimigoHeight))){
+		clearInterval(timerColisao);
+		document.querySelector("#iniciar").style.visibility="visible";
+}
+
+}
+
+
+//Main
+let podeAtirar = true;
+let bala;
+let timerBala;
+document.querySelector("#iniciar").addEventListener("click", ()=>{iniciar()});      
+
+		</script>
+	</body>
+</html>
+<!-- to do: barras de hp, movimento inimigo, scores de vitorias e derrotas, graficos, projetil inimigo, musica e efeitos sonoros -->

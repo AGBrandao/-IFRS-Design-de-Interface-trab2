@@ -1,0 +1,43 @@
+#fundo {
+     position: absolute;
+     top: 5vw;
+     left:5vw;
+     width: 90vw;
+     height: 60vw;
+     background-color: black;
+     text-align: center;
+     color:green;
+	}
+
+#jogador {
+    position: absolute; 
+    top: 5vw; 
+    left: 5vw; 
+    width: 5vw; 
+    height: 5vw; 
+    background-color: white; 
+    
+}
+#inimigo {
+    position: absolute;
+    top: 15vw;
+    left: 80vw; 
+    width: 5vw; 
+    height: 5vw; 
+    background-color: red; 
+    
+}
+.painel {
+    position: absolute;
+     top: 67vw; 
+     left:10vw; 
+     text-align: center;
+
+}  
+.bullets {
+    position: absolute;
+    top: 34vw;
+    width: 4vw;
+    height: 2vw;
+    background-color: aqua;
+}
