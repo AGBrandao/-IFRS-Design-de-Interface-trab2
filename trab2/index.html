@@ -7,157 +7,202 @@
     <!-- <link rel="stylesheet" href="style.css"> -->
     </head>
 	<body>
-		<div class="fundo" id="fundo">
-			<br><br><b>VS</b>
+		<div id="fundo">
+
 			<div id="vidaMaximaJogador" >
-				<br><br>
-				<b>Ryu</b>
 			</div>
 			<div id="vidaJogador" >
 			</div>
+			<div id="nomeJogador"> 
+			<b>Ryu</b></div>
 			<div id="vidaMaximaInimigo" >
-				<br><br>
-				<b>Akuma</b>
 			</div>
 			<div id="vidaInimigo" >
 			</div>
-			<div id="inimigo" >
+			<div id="nomeInimigo"> 
+				<b>Akuma</b></div>
+			<div id="inimigo">
+				<img alt="inimigo" src="./img/akuma.gif" class="spriteInvertido" id="avatarInimigo">
 			</div>
 			<div id="jogador">
+				<img alt="jogador" src="./img/ryu.gif" class="spriteNormal" id="avatarJogador">
 			</div>
 		</div>	
 
-		<div class="painel" id="painel">
-				<div>
-					<hr>
-					<button type="button"  id="acima" >Acima</button><br>
-					<button type="button"  id="esquerda">Esquerda</button>
-					<button type="button"  id="direita" >Direita</button><br>
-					<button type="button"  id="baixo" >Abaixo</button><hr>				
+		<div id="painel">
+			
+				<div id="dpad">					
+					<button type="button"  id="acima" >Acima</button>
+					<div>						
+						<button type="button"  id="esquerda">Esquerda</button>
+						<button type="button"  id="direita" >Direita</button>
+					</div>
+					<button type="button"  id="baixo" >Abaixo</button>
+				</div>
+				<div>			
+					<button type="button"  id="iniciar" >Iniciar</button>				
 				</div>
 				<div>
-					<button type="button"  id="iniciar" >Iniciar</button>
-				</div>
-				<div>
-					<hr>
-					<button type="button"  id="atirar">Hadou-ken!</button><hr>
+					<button type="button"  id="atirar">Hadou-ken!</button>
 				</div>			
 		</div>
-		<style>
-			
-			#body {
-				display: grid;
-				grid-template-rows: 1fr 1fr;
-			}
-			#painel {
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				align-items: center;
-				border: black;
-				border:5px solid black;
-				position: absolute;
-				top: 70vw;
-				left: 30vw;
-				padding: 2vw;
-				width: 40vw;
-			}
+		<style>			
+	body {
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+	}
+	#painel {
+	position: absolute;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	border:5px solid black;
+	padding: 2vw;	
+	top: 75vw;
+	}
+	#dpad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	}
+	button {
+		padding: 1vw 2vw;
+		margin: 1vw;
+	}
+	#fundo {
+	position: absolute;
+	margin: 1vw;
+	width: 90vw;
+	height: 60vw;
+	border: black;
+	border:1px solid black;
+	background-color: black;
+	text-align: center;
+	color:red;
+	background-image: url('img/arena.png');
+	background-size: cover;
+    background-position: center;
+	}
+	#nomeJogador {
+		position: absolute;
+		top: 5vw;
+		left: 20vw;;
+	}
+	#nomeInimigo {
+		position: absolute;
+		top: 5vw;
+		left: 65vw;;
+	}
+	#jogador {
+		position: absolute; 
+		top: 25vw; 
+		left: 15vw; 
+		width: 5vw; 
+		height: 10vw;     
+	}
+	#inimigo {
+		position: absolute;
+		top: 35vw;
+		left: 70vw; 
+		width: 5vw; 
+		height: 10vw;     
+	}
+	.painel {
+		position: absolute;
+		top: 67vw; 
+		left:10vw; 
+		text-align: center;
 
-			#fundo {
-				position: absolute;
-				top: 5vw;
-				left:5vw;
-				width: 90vw;
-				height: 60vw;
-				background-color: black;
-				text-align: center;
-				color:red;
-			}
-
-#jogador {
-    position: absolute; 
-    top: 25vw; 
-    left: 15vw; 
-    width: 5vw; 
-    height: 5vw; 
-    background-color: white; 
-    
-}
-#inimigo {
-    position: absolute;
-    top: 35vw;
-    left: 70vw; 
-    width: 5vw; 
-    height: 5vw; 
-    background-color: red; 
-    
-}
-.painel {
-    position: absolute;
-     top: 67vw; 
-     left:10vw; 
-     text-align: center;
-
-}  
-.bullets {
-    position: absolute;
-    width: 4vw;
-    height: 2vw;
-    background-color: aqua;
-}
-.bulletsBad {
-    position: absolute;
-    width: 4vw;
-    height: 2vw;
-    background-color: purple;
-}
-#vidaMaximajogador {
-	position: absolute;
-	top: 1vw;
-    left: 2vw; 
-    width: 40vw; 
-    height: 3vw; 
-	color: red;
-	background-color: yellow; 
-}
-#vidaJogador {
-	position: absolute;
-	top: 1vw;
-    left: 2vw; 
-    width: 0vw; 
-    height: 3vw; 
-    background-color: red; 
-}
-#vidaMaximaInimigo {
-	position: absolute;
-	top: 1vw;
-	left: 48vw; 
-	width: 40vw; 
-	height: 3vw; 
-	color: red;
-	background-color: red; 
-}
-#vidaInimigo {
-	position: absolute;
-	top: 1vw;
-    left: 48vw; 
-    width: 40vw; 
-    height: 3vw; 
-    background-color: yellow; 
-}
+	}  
+	.bullets {
+		position: absolute;
+		width: 4vw;
+		height: 2vw;
+		background-image: url('img/hadouken.png');
+		background-size: cover;
+		background-position: center;
+	}
+	.bulletsBad {
+		position: absolute;
+		width: 4vw;
+		height: 2vw;
+		background-image: url('img/messatsu.png');
+		background-size: cover;
+		background-position: center;
+		transform: rotateY(180deg); 
+	}
+	#vidaMaximajogador {
+		position: absolute;
+		top: 1vw;
+		left: 2vw; 
+		width: 40vw; 
+		height: 3vw; 
+		color: red;
+		background-color: yellow; 
+	}
+	#vidaJogador {
+		position: absolute;
+		top: 1vw;
+		left: 2vw; 
+		width: 0vw; 
+		height: 3vw; 
+		background-color: red; 
+	}
+	#vidaMaximaInimigo {
+		position: absolute;
+		top: 1vw;
+		left: 48vw; 
+		width: 40vw; 
+		height: 3vw; 
+		color: red;
+		background-color: red; 
+	}
+	#vidaInimigo {
+		position: absolute;
+		top: 1vw;
+		left: 48vw; 
+		width: 40vw; 
+		height: 3vw; 
+		background-color: yellow; 
+	}
+	.spriteNormal {
+		width: 5vw; 
+		height: 10vw;
+	}
+	.spriteInvertido {
+		width: 5vw; 
+		height: 10vw;
+		transform: rotateY(180deg); 
+	}
 		</style>
 		<script>
 //Funções
+// Inicia jogo (realoca elementos e cria timers)
 function iniciar() {
-	document.querySelector("#jogador").style.left="10vw";
-	document.querySelector("#jogador").style.top="10vw";
+	musica.currentTime = 0;
+	musica.play();
+	musica.loop = true;
+	musica.volume = 0.5;
+	avatarInimigo.src = "./img/akuma.gif"; 
+	avatarJogador.src = "./img/ryu.gif"; 
+	document.querySelector("#jogador").style.left="15vw";
+	document.querySelector("#jogador").style.top="25vw";
+	document.querySelector("#inimigo").style.left="70vw";
+	document.querySelector("#inimigo").style.top="30vw";
 	vidaInimigo.style.width = "40vw";
 	vidaJogador.style.width = "0vw";
 
 	timerColisaoInimigo = setInterval("colisaoInimigo()", 5);
 	timerColisaoJogador = setInterval("colisaoJogador()", 5);
 	timerMoveInimigo = setInterval("moveInimigo()", 500);
-	timerAtiraInimigo = setInterval("atirarInimigo()", 1000)
+	timerAtiraInimigo = setInterval("atirarInimigo()", 1000);
+	podeAtirar=true;
+	podeAtirarInimigo=true;
+	podeMover = true;
 
 	document.querySelector("#acima").addEventListener("click", ()=>{move('acima')});
 	document.querySelector("#esquerda").addEventListener("click",()=>{ move('esquerda')});
@@ -167,7 +212,6 @@ function iniciar() {
 
 	document.querySelector("#iniciar").style.visibility="hidden";
 }
-
 // Mover jogador com botões
 function move(Direcao) {	
 
@@ -179,28 +223,30 @@ function move(Direcao) {
 	let fundoWidth= parseInt(getComputedStyle(fundo).width);
 	let fundoHeight= parseInt(getComputedStyle(fundo).height);
 	
-	if (Direcao == "esquerda") {
-		jogador.style.left = jogadorLeft-15;
-		if ( jogadorLeft <= (0)){
-			jogador.style.left = 0;
+	if (podeMover) {
+		if (Direcao == "esquerda") {
+			jogador.style.left = jogadorLeft-15;
+			if ( jogadorLeft <= (0)){
+				jogador.style.left = 0;
+			}
 		}
-	}
-	if (Direcao == "acima") {
-		jogador.style.top = jogadorTop-15;
-		if ( jogadorTop <= (jogadorHeight*2)){
-			jogador.style.top = jogadorHeight*2;
+		if (Direcao == "acima") {
+			jogador.style.top = jogadorTop-15;
+			if ( jogadorTop <= (jogadorHeight*2)){
+				jogador.style.top = jogadorHeight*2;
+			}
 		}
-	}
-	if (Direcao == "direita") {
-		jogador.style.left = jogadorLeft+15;
-		if ( jogadorLeft >= (fundoWidth/2) - jogadorWidth*2){
-			jogador.style.left = (fundoWidth/2) - jogadorWidth*2;
+		if (Direcao == "direita") {
+			jogador.style.left = jogadorLeft+15;
+			if ( jogadorLeft >= (fundoWidth/2) - jogadorWidth*2){
+				jogador.style.left = (fundoWidth/2) - jogadorWidth*2;
+			}
 		}
-	}
-	if (Direcao == "baixo") {
-		jogador.style.top = jogadorTop+15;
-		if ( jogadorTop >= (fundoHeight - jogadorHeight)){
-			jogador.style.top = (fundoHeight - jogadorHeight);
+		if (Direcao == "baixo") {
+			jogador.style.top = jogadorTop+15;
+			if ( jogadorTop >= (fundoHeight - jogadorHeight)){
+				jogador.style.top = (fundoHeight - jogadorHeight);
+			}
 		}
 	}
 }
@@ -217,53 +263,57 @@ function moveInimigo () {
 
 	function random(){
 		return Math.floor(Math.random() * 4);
-		}
+		}		
+		switch (random()) {
+			case 0:
+				clearInterval(timerMoveInimigo);
+				inimigo.style.left = inimigoLeft-30;
+				if ( inimigoLeft <= (fundoWidth/2) + inimigoWidth){
+					inimigo.style.left = (fundoWidth/2) + inimigoWidth;				
+				}
+				break;
 		
-		if (random() == "0") {
-			clearInterval(timerMoveInimigo);
-			inimigo.style.left = inimigoLeft-30;
-			if ( inimigoLeft <= (fundoWidth/2) + inimigoWidth){
-				inimigo.style.left = (fundoWidth/2) + inimigoWidth;
+			case 1:
+				clearInterval(timerMoveInimigo);
+				inimigo.style.top = inimigoTop-30;
+				if ( inimigoTop <= (inimigoHeight*2)){
+					inimigo.style.top = inimigoHeight*2;
+				}
+				break;
+				case 2: 
+				clearInterval(timerMoveInimigo);
+				inimigo.style.left = inimigoLeft+30;
+				if ( inimigoLeft >= (fundoWidth  - inimigoWidth)){
+					inimigo.style.left = (fundoWidth - inimigoWidth);
+				}
+				break;
+				case 3:
+					clearInterval(timerMoveInimigo);
+					inimigo.style.top = inimigoTop+30;
+					if ( inimigoTop >= (fundoHeight - inimigoHeight)){
+						inimigo.style.top = (fundoHeight - inimigoHeight);
+					}
+					break;
 			}
-		}
-		if (random() == "1") {
-			clearInterval(timerMoveInimigo);
-			inimigo.style.top = inimigoTop-30;
-			if ( inimigoTop <= (inimigoHeight*2)){
-				inimigo.style.top = inimigoHeight*2;
-			}
-		}
-		if (random() == "2") {
-			clearInterval(timerMoveInimigo);
-			inimigo.style.left = inimigoLeft+30;
-			if ( inimigoLeft >= (fundoWidth  - inimigoWidth)){
-				inimigo.style.left = (fundoWidth - inimigoWidth);
-			}
-		}
-	if (random() == "3") {
-		clearInterval(timerMoveInimigo);
-		inimigo.style.top = inimigoTop+30;
-		if ( inimigoTop >= (fundoHeight - inimigoHeight)){
-			inimigo.style.top = (fundoHeight - inimigoHeight);
-		}
-	}
-
 	clearInterval(timerMoveInimigo);
 	timerMoveInimigo = setInterval("moveInimigo()", 500)
 }
-
 // Balas do jogador
 function atirar(){
 	if(podeAtirar==true){
 		bala = document.createElement("div");
 		bala.classList.add("bullets");
 		bala.style.left=parseInt(getComputedStyle(jogador).left);
-		bala.style.top=parseInt(getComputedStyle(jogador).top);
+		bala.style.top=parseInt(getComputedStyle(jogador).top)+10;
 		fundo.appendChild(bala);
 		podeAtirar=false;
 		timerBala = setInterval("moveBala(bala)",10);
+		new Audio('../audio/hadouken.wav').play();
+		avatarJogador.src = "./img/ryuShoots.gif"; 
+		setTimeout(() => {avatarJogador.src = "./img/ryu.gif";}, 500);
 	}
 }
+// Mover as Balas do jogador
 function moveBala(bala){
 	let fundoWidth= parseInt(getComputedStyle(fundo).width);
 	let balaLeft =  parseInt(getComputedStyle(bala).left);
@@ -275,6 +325,7 @@ function moveBala(bala){
 		podeAtirar=true;
 	}
 }
+// colisão da bala do jogador com o inimigo
 function colisaoInimigo(){
 
 	let jogador = document.querySelector("#jogador");
@@ -303,21 +354,24 @@ function colisaoInimigo(){
 
 
 	//se bala e inimigo colidirem reduz HP do inimigo
-	if (((balaLeft + balaWidth >= inimigoLeft)&&(balaLeft <= inimigoLeft + inimigoWidth))&&((balaTop + balaHeight>= inimigoTop)&&(balaTop <= inimigoTop + inimigoHeight))){	
+	if (((balaLeft + balaWidth >= inimigoLeft)&&(balaLeft <= inimigoLeft + inimigoWidth))&&((balaTop + balaHeight>= inimigoTop)&&(balaTop <= inimigoTop + inimigoHeight))) {	
 			let hpReduzidoInimigo = parseInt(getComputedStyle(vidaInimigo).width) - (parseInt(getComputedStyle(vidaMaximaInimigo).width)/5);
 				vidaInimigo.style.width = hpReduzidoInimigo + "px";
-				if (hpReduzidoInimigo <= 0) {
-					vidaInimigo.style.width = "0px";
-					zerarTimers();
-					alert("Inimigo derrotado!");
-					document.querySelector("#iniciar").style.visibility = "visible";
-				}
+				new Audio('../audio/hit.wav').play();
 				bala.parentElement.removeChild(bala);
 				clearInterval(timerBala);
 				podeAtirar = true;
+				if (hpReduzidoInimigo <= 0) {
+					vidaInimigo.style.width = "0px";
+					new Audio('../audio/KO.mp3').play();
+					new Audio('../audio/akumaDies.wav').play();
+					avatarInimigo.src = "./img/akumaDies.gif"; 
+					avatarJogador.src = "./img/ryuWins.gif"; 
+					zerarTimers();
+					// alert("Você venceu!");
+				}
 	}
 }
-
 // Balas do inimigo (timer + random)
 function atirarInimigo(){
 
@@ -330,13 +384,17 @@ function atirarInimigo(){
 			balaInimigo = document.createElement("div");
 			balaInimigo.classList.add("bulletsBad");
 			balaInimigo.style.left=parseInt(getComputedStyle(inimigo).left);
-			balaInimigo.style.top=parseInt(getComputedStyle(inimigo).top);
+			balaInimigo.style.top=parseInt(getComputedStyle(inimigo).top)+10;
 			fundo.appendChild(balaInimigo);
 			podeAtirarInimigo=false;
 			timerBalaInimigo = setInterval("moveBalaInimigo(balaInimigo)",10);
+			new Audio('../audio/messatsu.wav').play();
+			avatarInimigo.src = "./img/akumaShoots.gif"; 
+		setTimeout(() => {avatarInimigo.src = "./img/akuma.gif";}, 500);
 		}
 	}
 }
+// Mover as Balas do inimigo
 function moveBalaInimigo(balaInimigo){
 	let balaInimigoLeft =  parseInt(getComputedStyle(balaInimigo).left);
 	balaInimigo.style.left=balaInimigoLeft-5;
@@ -347,6 +405,7 @@ function moveBalaInimigo(balaInimigo){
 		podeAtirarInimigo=true;
 	}
 }
+// colisão da bala do inimigo com o jogador
 function colisaoJogador(){
 
 let jogador = document.querySelector("#jogador");
@@ -374,60 +433,57 @@ let balaHeight= parseInt(getComputedStyle(bala).height);
 let balaWidth= parseInt(getComputedStyle(bala).width);
 
 
-//se bala e jopgador colidirem reduz HP do jogador
+//se bala e jogador colidirem reduz HP do jogador
 if (((balaLeft + balaWidth >= jogadorLeft)&&(balaLeft <= jogadorLeft + jogadorWidth))&&((balaTop + balaHeight>= jogadorTop)&&(balaTop <= jogadorTop + jogadorHeight))){	
-	let hpReduzidoJogador = parseInt(getComputedStyle(vidaJogador).width) + (parseInt(getComputedStyle(vidaMaximaJogador).width)/5);
+	let hpReduzidoJogador = parseInt(getComputedStyle(vidaJogador).width) + (parseInt(getComputedStyle(vidaMaximaJogador).width)/4.9);
+	balaInimigo.parentElement.removeChild(balaInimigo);
+	clearInterval(timerBalaInimigo);
+	podeAtirarInimigo = true;
 		if (hpReduzidoJogador <= parseInt(getComputedStyle(vidaMaximaJogador).width)) {
         vidaJogador.style.width = hpReduzidoJogador + "px";
+		new Audio('../audio/hit.wav').play();
     } else {
         vidaJogador.style.width = getComputedStyle(vidaMaximaJogador).width;
+		new Audio('../audio/KO.mp3').play();
+		new Audio('../audio/ryuDies.wav').play();
+		avatarJogador.src = "./img/ryuDies.gif"; 
+		avatarInimigo.src = "./img/akumaWins.gif"; 
 		zerarTimers();
-		alert("Jogador derrotado!");
-		document.querySelector("#iniciar").style.visibility = "visible";
+		// alert("Você perdeu!");
     } 
-		bala.parentElement.removeChild(balaInimigo);
-		clearInterval(timerBalaInimigo);
-		podeAtirarInimigo = true;
 }
 }
-
+// Zera todos os timers (é invocada quando o jogo acaba)
 function zerarTimers() {
-	clearInterval(timerColisaoInimigo);
-	clearInterval(timerColisaoJogador);
+	document.querySelector("#iniciar").style.visibility = "visible";
+	musica.pause();
 	clearInterval(timerMoveInimigo);
 	clearInterval(timerAtiraInimigo);
+	clearInterval(timerBala);
+	clearInterval(timerBalaInimigo);
+	clearInterval(timerColisaoInimigo);
+	clearInterval(timerColisaoJogador);
+	podeAtirar=false;
+	podeAtirarInimigo=false;
+	podeMover = false;
+	let bala = document.querySelectorAll(".bullets");
+    bala.forEach(bala => {
+    bala.parentElement.removeChild(bala);
+	});
+	let balaInimigo = document.querySelectorAll(".bulletsBad");
+	balaInimigo.forEach(balaInimigo => {
+		balaInimigo.parentElement.removeChild(balaInimigo);
+	});
 }
 
 //Main
-let podeAtirar = true;
-let podeAtirarInimigo = true;
-let bala;
-let balaInimigo;
-let timerBala;
-let timerBalaInimigo;
-let timerMoveInimigo;
-document.querySelector("#iniciar").addEventListener("click", ()=>{iniciar()});      
-
+let podeMover = false;
+let musica = new Audio('../audio/music.mp3');
+let avatarJogador = document.getElementById('avatarJogador');
+let avatarInimigo = document.getElementById('avatarInimigo');
+document.querySelector("#iniciar").addEventListener("click", ()=>{iniciar()});
 		</script>
 	</body>
 </html>
-<!-- to do: scores de vitorias e derrotas, graficos, musica e efeitos sonoros 
- 
-
-//audio
-musica = new Audio('../audio/musica.mp3');
-musica.play();
-musica.pause();
-musica.load();
-musica.play();
-musica.volume = 0.05;
-musica.loop = true;
-************************************
-/* imagem: se colocar a imagem dentro de uma div a imagem
-acompanha o tamanho e movimento da div. Uma alternativa é
-colocar a imagem como background da div no arquivo css*/
-<div id="div1">
-<img alt="" src="./imagens/nave.jpg">
-</div>
-
+<!-- to do: scores de vitorias e derrotas, responsividade dos comandos E da tela de fundo, verificar pq o jogo morre se ficar parado
 -->
