@@ -5,15 +5,31 @@ body {
     align-items: center;
     margin: 0;
 	}
+	#fundo {
+	position: absolute;
+	width: 100vw;
+	height: 80vh;
+	border: black;
+	border:1px solid black;
+	background-color: black;
+	color:red;
+	background-image: url('img/arena.png');
+	background-size: cover;
+	background-position: center;
+	z-index: 1;
+	}
 	#painel {
 	position: absolute;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	border:5px solid black;
-	padding: 2vw;	
-	top: 75vw;
+	border:2px solid black;
+	top: 80vh;
+	height: 15vh;
+	margin-top: 5px;
+	z-index: 2;
+	padding: 5px;
 	}
 	#dpad {
     display: flex;
@@ -21,58 +37,52 @@ body {
     align-items: center;
 	}
 	button {
-		padding: 1vw 2vw;
-		margin: 1vw;
-	}
-	#fundo {
-	position: absolute;
-	margin: 1vw;
-	width: 90vw;
-	height: 60vw;
-	border: black;
-	border:1px solid black;
-	background-color: black;
-	text-align: center;
-	color:red;
-	background-image: url('img/arena.png');
-	background-size: cover;
-    background-position: center;
+		padding: 0vh 5vw;
+		margin: 0vh;
+		font-size: 1.5vw;
 	}
 	#nomeJogador {
 		position: absolute;
-		top: 5vw;
-		left: 20vw;;
+		top: 5vh;
+		left: 20vw;
+		font-size: 1.5vw;
+	}
+	#escoreJogador {
+		position: absolute;
+		top: 5vh;
+		left: 5vw;
+		font-size: 2.5vw;
 	}
 	#nomeInimigo {
 		position: absolute;
-		top: 5vw;
-		left: 65vw;;
+		top: 5vh;
+		left: 75vw;
+		font-size: 1.5vw;
+	}
+	#escoreInimigo {
+		position: absolute;
+		top: 5vh;
+		left: 95vw;
+		font-size: 2.5vw;
 	}
 	#jogador {
 		position: absolute; 
-		top: 25vw; 
+		top: 35vh; 
 		left: 15vw; 
 		width: 5vw; 
-		height: 10vw;     
+		height: 10vh;     
 	}
 	#inimigo {
 		position: absolute;
-		top: 35vw;
+		top: 45vh;
 		left: 70vw; 
 		width: 5vw; 
-		height: 10vw;     
+		height: 10vh;     
 	}
-	.painel {
-		position: absolute;
-		top: 67vw; 
-		left:10vw; 
-		text-align: center;
-
-	}  
 	.bullets {
 		position: absolute;
 		width: 4vw;
-		height: 2vw;
+		height: 4vh;
 		background-image: url('img/hadouken.png');
 		background-size: cover;
 		background-position: center;
@@ -80,7 +90,7 @@ body {
 	.bulletsBad {
 		position: absolute;
 		width: 4vw;
-		height: 2vw;
+		height: 4vh;
 		background-image: url('img/messatsu.png');
 		background-size: cover;
 		background-position: center;
@@ -88,44 +98,44 @@ body {
 	}
 	#vidaMaximajogador {
 		position: absolute;
-		top: 1vw;
+		top: 1vh;
 		left: 2vw; 
 		width: 40vw; 
-		height: 3vw; 
+		height: 3vh; 
 		color: red;
 		background-color: yellow; 
 	}
 	#vidaJogador {
 		position: absolute;
-		top: 1vw;
+		top: 1vh;
 		left: 2vw; 
 		width: 0vw; 
-		height: 3vw; 
+		height: 3vh; 
 		background-color: red; 
 	}
 	#vidaMaximaInimigo {
 		position: absolute;
-		top: 1vw;
-		left: 48vw; 
+		top: 1vh;
+		left: 58vw; 
 		width: 40vw; 
-		height: 3vw; 
+		height: 3vh; 
 		color: red;
 		background-color: red; 
 	}
 	#vidaInimigo {
 		position: absolute;
-		top: 1vw;
-		left: 48vw; 
+		top: 1vh;
+		left: 58vw; 
 		width: 40vw; 
-		height: 3vw; 
+		height: 3vh; 
 		background-color: yellow; 
 	}
 	.spriteNormal {
 		width: 5vw; 
-		height: 10vw;
+		height: 10vh;
 	}
 	.spriteInvertido {
 		width: 5vw; 
-		height: 10vw;
+		height: 10vh;
 		transform: rotateY(180deg); 
 	}
