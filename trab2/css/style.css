@@ -1,4 +1,4 @@
-@import url("reset.css"); 
+@import url("reset.css");
 @import url("fonte.css");
 
 body {
@@ -7,142 +7,159 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	margin: 0;
-	}
-	#fundo {
+}
+
+#fundo {
 	position: absolute;
-	width: 100vw;
+	width: 90vw;
 	height: 80vh;
 	border: black;
-	border:1px solid black;
-	background-color: black;
-	color:red;
+	border: 1px solid black;
+	color: red;
 	background-image: url('../img/arena.png');
 	background-size: cover;
 	background-position: center;
 	z-index: 1;
-	}
-	#painel {
+}
+
+#painel {
 	position: absolute;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
-	border:2px solid black;
+	border: 2px solid black;
 	top: 80vh;
 	height: 15vh;
 	margin-top: 5px;
 	z-index: 2;
 	padding: 5px;
-	}
-	#dpad {
+}
+
+#dpad {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	}
-	button {
-	padding: 0vh 5vw;
-	margin: 0vh;
+}
+
+button {
+	padding: 1vh 5vw;
 	font-size: 1.5vw;
-	}
-	#nomeJogador {
+	font-weight: 700;
+	border: 1px solid black;
+}
+
+#nomeJogador {
 	position: absolute;
 	top: 5vh;
 	left: 20vw;
 	font-size: 1.5vw;
-	}
-	#escoreJogador {
+}
+
+#escoreJogador {
 	position: absolute;
 	top: 5vh;
 	left: 5vw;
 	font-size: 2.5vw;
-	}
-	#nomeInimigo {
+}
+
+#nomeInimigo {
 	position: absolute;
 	top: 5vh;
-	left: 75vw;
+	left: 65vw;
 	font-size: 1.5vw;
-	}
-	#escoreInimigo {
+}
+
+#escoreInimigo {
 	position: absolute;
 	top: 5vh;
-	left: 95vw;
+	left: 85vw;
 	font-size: 2.5vw;
-	}
-	#jogador {
-	position: absolute; 
-	top: 35vh; 
-	left: 15vw; 
-	width: 5vw; 
-	height: 10vh;     
-	}
-	#inimigo {
+}
+
+#jogador {
+	position: absolute;
+	top: 35vh;
+	left: 15vw;
+	width: 5vw;
+	height: 10vh;
+}
+
+#inimigo {
 	position: absolute;
 	top: 45vh;
-	left: 70vw; 
-	width: 5vw; 
-	height: 10vh;     
-	}
-	.bullets {
+	left: 70vw;
+	width: 5vw;
+	height: 10vh;
+}
+
+.bullets {
 	position: absolute;
 	width: 4vw;
 	height: 4vh;
 	background-image: url('../img/hadouken.png');
 	background-size: cover;
 	background-position: center;
-	}
-	.bulletsBad {
+}
+
+.bulletsBad {
 	position: absolute;
 	width: 4vw;
 	height: 4vh;
 	background-image: url('../img/messatsu.png');
 	background-size: cover;
 	background-position: center;
-	transform: rotateY(180deg); 
-	}
-	#vidaMaximajogador {
+	transform: rotateY(180deg);
+}
+
+#vidaMaximajogador {
 	position: absolute;
 	top: 1vh;
-	left: 2vw; 
-	width: 40vw; 
-	height: 3vh; 
-	color: red;
-	background-color: yellow; 
-	}
-	#vidaJogador {
+	left: 2vw;
+	width: 40vw;
+	height: 3vh;
+	background-color: yellow;
+}
+
+#vidaJogador {
 	position: absolute;
 	top: 1vh;
-	left: 2vw; 
-	width: 0vw; 
-	height: 3vh; 
+	left: 2vw;
+	width: 0vw;
+	height: 3vh;
 	background-color: red;
-	}
-	#vidaMaximaInimigo {
+}
+
+#vidaMaximaInimigo {
 	position: absolute;
 	top: 1vh;
-	left: 58vw; 
-	width: 40vw; 
-	height: 3vh; 
-	color: red;
-	background-color: red; 
-	}
-	#vidaInimigo {
+	left: 48vw;
+	width: 40vw;
+	height: 3vh;
+	background-color: red;
+}
+
+#vidaInimigo {
 	position: absolute;
 	top: 1vh;
-	left: 58vw; 
-	width: 40vw; 
-	height: 3vh; 
-	background-color: yellow; 
-	}
-	.spriteNormal {
-	width: 5vw; 
+	left: 48vw;
+	width: 40vw;
+	height: 3vh;
+	background-color: yellow;
+}
+
+.spriteNormal {
+	width: 5vw;
 	height: 10vh;
-	}
-	.spriteInvertido {
-	width: 5vw; 
+}
+
+.spriteInvertido {
+	width: 5vw;
 	height: 10vh;
-	transform: rotateY(180deg); 
-	}
-	.mensagemResetarEscore {
+	transform: rotateY(180deg);
+}
+
+.mensagemResetarEscore {
 	position: absolute;
 	background-image: url('../img/reset.png');
 	background-size: contain;
@@ -150,8 +167,9 @@ body {
 	width: 20vw;
 	height: 20vh;
 	z-index: 5;
-	}
-	.mensagemVitoria {
+}
+
+.mensagemVitoria {
 	position: absolute;
 	background-image: url('../img/vitoria.png');
 	background-size: contain;
@@ -159,8 +177,9 @@ body {
 	width: 20vw;
 	height: 20vh;
 	z-index: 5;
-	}
-	.mensagemDerrota {
+}
+
+.mensagemDerrota {
 	position: absolute;
 	background-image: url('../img/derrota.png');
 	background-size: contain;
@@ -168,4 +187,4 @@ body {
 	width: 20vw;
 	height: 20vh;
 	z-index: 5;
-	}
+}
