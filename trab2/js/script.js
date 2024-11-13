@@ -150,29 +150,34 @@ function move(Direcao) {
     let fundoWidth = parseInt(getComputedStyle(fundo).width);
     let fundoHeight = parseInt(getComputedStyle(fundo).height);
 
+    // quanto vai se mover
+    let percentualMovimento = 0.05;
+    let moveX = fundoWidth * percentualMovimento;
+    let moveY = fundoHeight * percentualMovimento;
+    
     if (podeMover) {
         if (Direcao == "esquerda") {
-            jogador.style.left = jogadorLeft - 20;
-            if (jogadorLeft <= (0)) {
+            jogador.style.left = (jogadorLeft - moveX) + 'px';
+            if (jogadorLeft <= (jogadorWidth)) {
                 jogador.style.left = 0;
             }
         }
         if (Direcao == "acima") {
-            jogador.style.top = jogadorTop - 20;
-            if (jogadorTop <= (jogadorHeight * 3)) {
+            jogador.style.top = (jogadorTop - moveY) + 'px';
+            if (jogadorTop <= (jogadorHeight * 4)) {
                 jogador.style.top = jogadorHeight * 3;
             }
         }
         if (Direcao == "direita") {
-            jogador.style.left = jogadorLeft + 20;
-            if (jogadorLeft >= (fundoWidth / 2) - jogadorWidth * 2) {
+            jogador.style.left = (jogadorLeft + moveX) + 'px';
+            if (jogadorLeft >= (fundoWidth / 2) - jogadorWidth * 3) {
                 jogador.style.left = (fundoWidth / 2) - jogadorWidth * 2;
             }
         }
         if (Direcao == "baixo") {
-            jogador.style.top = jogadorTop + 20;
-            if (jogadorTop >= (fundoHeight - jogadorHeight)) {
-                jogador.style.top = (fundoHeight - jogadorHeight);
+            jogador.style.top = (jogadorTop + moveY) + 'px';
+            if (jogadorTop >= (fundoHeight - jogadorHeight*2)) {
+                jogador.style.top = (fundoHeight - jogadorHeight*2);
             }
         }
     }
@@ -180,7 +185,7 @@ function move(Direcao) {
 // Move inimigo aleatoriamente
 function moveInimigo() {
 
-    //pega os dados do inimigo
+    // pega os dados do inimigo
     let inimigo = document.querySelector("#inimigo");
     let inimigoLeft = parseInt(getComputedStyle(inimigo).left);
     let inimigoTop = parseInt(getComputedStyle(inimigo).top);
@@ -189,6 +194,11 @@ function moveInimigo() {
 
     let fundoWidth = parseInt(getComputedStyle(fundo).width);
     let fundoHeight = parseInt(getComputedStyle(fundo).height);
+
+    // quanto vai se mover
+    let percentualMovimento = 0.05;
+    let moveX = fundoWidth * percentualMovimento;
+    let moveY = fundoHeight * percentualMovimento;
 
     function random() {
         return Math.floor(Math.random() * 400);
@@ -199,32 +209,32 @@ function moveInimigo() {
     switch (true) {
         case (valorRandom < 100):
             clearInterval(timerMoveInimigo);
-            inimigo.style.left = inimigoLeft - 30;
+            inimigo.style.left = inimigoLeft - moveX;
+            if (inimigoLeft <= (fundoWidth / 2) + inimigoWidth) {
+                inimigo.style.left = (fundoWidth / 2) + inimigoWidth;
+            }
             break;
         case (valorRandom < 200):
             clearInterval(timerMoveInimigo);
-            inimigo.style.top = inimigoTop - 30;
+            inimigo.style.top = (inimigoTop - moveY) + 'px';
+            if (inimigoTop <= (inimigoHeight * 3)) {
+                inimigo.style.top = inimigoHeight * 3;
+            }
             break;
         case (valorRandom < 300):
             clearInterval(timerMoveInimigo);
-            inimigo.style.left = inimigoLeft + 30;
+            inimigo.style.left = (inimigoLeft + moveX) + 'px';
+            if (inimigoLeft >= (fundoWidth - inimigoWidth*2)) {
+                inimigo.style.left = (fundoWidth - inimigoWidth);
+            }
             break;
         case (valorRandom < 400):
             clearInterval(timerMoveInimigo);
-            inimigo.style.top = inimigoTop + 30;
+            inimigo.style.top = (inimigoTop + moveY) + 'px';
+            if (inimigoTop >= (fundoHeight - inimigoHeight*2)) {
+                inimigo.style.top = (fundoHeight - inimigoHeight*2);
+            }
             break;
-    }
-    if (inimigoLeft <= (fundoWidth / 2) + inimigoWidth) {
-        inimigo.style.left = (fundoWidth / 2) + inimigoWidth;
-    }
-    if (inimigoTop <= (inimigoHeight * 3)) {
-        inimigo.style.top = inimigoHeight * 3;
-    }
-    if (inimigoLeft >= (fundoWidth - inimigoWidth)) {
-        inimigo.style.left = (fundoWidth - inimigoWidth);
-    }
-    if (inimigoTop >= (fundoHeight - inimigoHeight)) {
-        inimigo.style.top = (fundoHeight - inimigoHeight);
     }
     clearInterval(timerMoveInimigo);
     timerMoveInimigo = setInterval("moveInimigo()", 500)
@@ -252,7 +262,9 @@ function atirar() {
 function moveBala(bala) {
     let fundoWidth = parseInt(getComputedStyle(fundo).width);
     let balaLeft = parseInt(getComputedStyle(bala).left);
-    bala.style.left = balaLeft + 5;
+    let percentualMovimento = 0.005;
+    let moveX = fundoWidth * percentualMovimento;
+    bala.style.left = (balaLeft + moveX) + 'px';
     if (balaLeft >= fundoWidth) {
         bala.parentElement.removeChild(bala);
         clearInterval(timerBala);
@@ -332,7 +344,10 @@ function atirarInimigo() {
 // Mover as Balas do inimigo
 function moveBalaInimigo(balaInimigo) {
     let balaInimigoLeft = parseInt(getComputedStyle(balaInimigo).left);
-    balaInimigo.style.left = balaInimigoLeft - 5;
+    let fundoWidth = parseInt(getComputedStyle(fundo).width);
+    let percentualMovimento = 0.005;
+    let moveX = fundoWidth * percentualMovimento;
+    balaInimigo.style.left = (balaInimigoLeft - moveX) + 'px';
     if (balaInimigoLeft <= 0) {
         balaInimigo.parentElement.removeChild(balaInimigo);
         clearInterval(timerBalaInimigo);
