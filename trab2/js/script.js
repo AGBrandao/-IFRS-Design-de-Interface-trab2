@@ -3,15 +3,17 @@
 let podeMover = false;
 let podeAtirar = false;
 let podeAtirarInimigo = false;
-let escoreJogador = localStorage.getItem("escoreJogador");
-let escoreInimigo = localStorage.getItem("escoreInimigo");
-if (localStorage.getItem("escoreJogador") == null || localStorage.getItem("escoreJogador") == undefined || localStorage.getItem("escoreJogador") == NaN) {
-    escoreJogador = localStorage.setItem('escoreJogador', '0');
+let escoreJogador = localStorage.getItem('escoreJogador');
+let escoreInimigo = localStorage.getItem('escoreInimigo');
+if (localStorage.getItem('escoreJogador') == null) {
+    localStorage.setItem('escoreJogador', '0');
+    escoreJogador = '0';
 } else {
     escoreJogador = localStorage.getItem('escoreJogador');
 }
-if (localStorage.getItem("escoreInimigo") == null || localStorage.getItem("escoreInimigo") == undefined || localStorage.getItem("escoreInimigo") == NaN) {
+if (localStorage.getItem('escoreInimigo') == null) {
     escoreInimigo = localStorage.setItem('escoreInimigo', '0');
+    escoreInimigo = '0';
 } else {
     escoreInimigo = localStorage.getItem('escoreInimigo');
 }
@@ -405,8 +407,8 @@ function zerarTimers() {
     balaInimigo.forEach(balaInimigo => {
         balaInimigo.parentElement.removeChild(balaInimigo);
     });
-    localStorage.setItem("escoreJogador", escoreJogador);
-    localStorage.setItem("escoreInimigo", escoreInimigo);
+    localStorage.setItem('escoreJogador', escoreJogador);
+    localStorage.setItem('escoreInimigo', escoreInimigo);
     document.removeEventListener('keyup', moveTeclado);
     document.removeEventListener('touchstart', moveTouch);
     document.querySelector("#acima").removeEventListener("click", moverAcima);
@@ -418,8 +420,8 @@ function zerarTimers() {
 function resetarEscore() {
     escoreJogador = 0;
     escoreInimigo = 0;
-    localStorage.setItem("escoreJogador", escoreJogador);
-    localStorage.setItem("escoreInimigo", escoreInimigo);
+    localStorage.setItem('escoreJogador', escoreJogador);
+    localStorage.setItem('escoreInimigo', escoreInimigo);
     document.getElementById('escoreJogador').innerText = escoreJogador;
     document.getElementById('escoreInimigo').innerText = escoreInimigo;
     mensagemResetarEscore();
