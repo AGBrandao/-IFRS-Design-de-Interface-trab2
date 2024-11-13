@@ -19,7 +19,7 @@ if (localStorage.getItem('escoreInimigo') == null) {
 }
 document.getElementById('escoreJogador').innerText = escoreJogador;
 document.getElementById('escoreInimigo').innerText = escoreInimigo;
-let musica = new Audio('../audio/music.mp3');
+let musica = new Audio('./audio/music.mp3');
 let avatarJogador = document.getElementById('avatarJogador');
 let avatarInimigo = document.getElementById('avatarInimigo');
 let timerColisaoInimigo;
@@ -251,7 +251,7 @@ function atirar() {
         fundo.appendChild(bala);
         podeAtirar = false;
         timerBala = setInterval("moveBala(bala)", 10);
-        new Audio('../audio/hadouken.wav').play();
+        new Audio('./audio/hadouken.wav').play();
         avatarJogador.src = "./img/ryuShoots.gif";
         setTimeout(() => {
             avatarJogador.src = "./img/ryu.gif";
@@ -298,14 +298,14 @@ function colisaoInimigo() {
         if (((balaLeft + balaWidth >= inimigoLeft) && (balaLeft <= inimigoLeft + inimigoWidth)) && ((balaTop + balaHeight >= inimigoTop) && (balaTop <= inimigoTop + inimigoHeight))) {
             let hpReduzidoInimigo = parseInt(getComputedStyle(vidaInimigo).width) - (parseInt(getComputedStyle(vidaMaximaInimigo).width) / 5);
             vidaInimigo.style.width = hpReduzidoInimigo + "px";
-            new Audio('../audio/hit.wav').play();
+            new Audio('./audio/hit.wav').play();
             bala.parentElement.removeChild(bala);
             clearInterval(timerBala);
             podeAtirar = true;
             if (hpReduzidoInimigo <= 0) {
                 vidaInimigo.style.width = "0px";
-                new Audio('../audio/KO.mp3').play();
-                new Audio('../audio/akumaDies.wav').play();
+                new Audio('./audio/KO.mp3').play();
+                new Audio('./audio/akumaDies.wav').play();
                 avatarInimigo.src = "./img/akumaDies.gif";
                 avatarJogador.src = "./img/ryuWins.gif";
                 escoreJogador = localStorage.getItem('escoreJogador');
@@ -333,7 +333,7 @@ function atirarInimigo() {
             fundo.appendChild(balaInimigo);
             podeAtirarInimigo = false;
             timerBalaInimigo = setInterval("moveBalaInimigo(balaInimigo)", 10);
-            new Audio('../audio/messatsu.wav').play();
+            new Audio('./audio/messatsu.wav').play();
             avatarInimigo.src = "./img/akumaShoots.gif";
             setTimeout(() => {
                 avatarInimigo.src = "./img/akuma.gif";
@@ -385,11 +385,11 @@ function colisaoJogador() {
             podeAtirarInimigo = true;
             if (hpReduzidoJogador <= parseInt(getComputedStyle(vidaMaximaJogador).width)) {
                 vidaJogador.style.width = hpReduzidoJogador + "px";
-                new Audio('../audio/hit.wav').play();
+                new Audio('./audio/hit.wav').play();
             } else {
                 vidaJogador.style.width = getComputedStyle(vidaMaximaJogador).width;
-                new Audio('../audio/KO.mp3').play();
-                new Audio('../audio/ryuDies.wav').play();
+                new Audio('./audio/KO.mp3').play();
+                new Audio('./audio/ryuDies.wav').play();
                 avatarJogador.src = "./img/ryuDies.gif";
                 avatarInimigo.src = "./img/akumaWins.gif";
                 escoreInimigo = localStorage.getItem('escoreInimigo');
