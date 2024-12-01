@@ -1,0 +1,125 @@
+@import url("reset.css"); 
+@import url("fonte.css");
+
+body {
+  color: black;
+  background-color: #c1d8a1;
+  font-family: 'roboto', Times;
+}
+header {
+  text-align: center;
+  background-color:green ;
+  margin: 2vw auto;
+  padding: 1vw;
+  min-width: 30vw;
+  max-width: 90vw;
+  opacity: 1;
+}
+#painelMaior {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+h1,h2,h3 {
+  text-align: center;
+}
+
+p {
+  text-align: left;
+  font-size: auto;
+}
+label {
+  font-size: 20px;
+  text-align: left;
+}
+.imagem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  margin: auto;
+}
+.imagem img {
+  max-width: 100%;
+  height: auto;
+}
+.opcoesBorda {
+  border:5px solid green;
+  margin: 2vw;
+  padding: 2vw;
+  background-color: #c1d8a1;
+}
+.caixaFlex {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  max-height: 50vh;
+  overflow-x: auto;
+}
+/* -------------------------------------------- */
+@media only screen and  (min-width: 360px) {
+  p {
+    font-size: 16px;
+  }   
+  header {
+    font-size: 20px;
+  }
+  .imagem {
+    width: 40%;
+    height: auto;
+  }
+  h1,h2,h3 {
+    font-size: 20px;
+  }
+  label {
+    font-size: 14px;
+  }
+}
+@media only screen and  (min-width: 720px) {
+  p {
+    font-size: 22px;
+  }   
+  header {
+    font-size: 28px;
+  }
+  .imagem {
+    width: auto;
+    height: auto;
+  }
+  h1,h2,h3 {
+    font-size: 28px;
+  }
+  label {
+    font-size: 16px;
+  }
+}
+@media only screen and  (min-width: 960px) {
+  p {
+    font-size: 26px;
+  }   
+  header {
+    font-size: 30px;
+  }
+  h1,h2,h3 {
+    font-size: 30px;
+  }
+  label {
+    font-size: 18px;
+  }
+}
+@media only screen and (min-width: 1195px) {
+  p {
+    font-size: 30px;
+  }
+  header {
+    font-size: 34px;
+  }
+  h1,h2,h3 {
+    font-size: 34px;
+  }
+  label {
+    font-size: 22px;
+  }
+}

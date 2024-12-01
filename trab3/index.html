@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/what.png" type="image/png">
+    <link rel="stylesheet" type="text/css" href="css/geral.css" > 
+    <title>Curiosidades com APIs</title>
+</head>
+
+<body>
+    <header><h1>Curiosidades com APIs</h1></header>
+
+<main> 
+    <div id="api1" class="opcoesBorda">
+        <label for="selecionadorDePaises"><h2>Selecione um País:</h2><br></label>            
+        <select id="selecionadorDePaises" name="selecionadorDePaises">
+        </select>
+        <div id="textoMutavel"> <br>Selecione um país para exibir informações</div>
+    </div>
+
+    <div id="api2" class="opcoesBorda"><h2>Feriados Nacionais de 2025</h2><br>
+        <div id="feriadosNacionais" class="caixaFlex">API 2</div>
+    </div>
+    <div id="api3"  class="opcoesBorda">
+        <div id="tituloFormulariosAPI3"><h2>Preencha os formulários para receber uma indicação de leitura:</h2><br></div>
+        <div id="Formulario1API3"><h4>Você prefere literatura nacional ou estrangeira?<br><br></h4>
+            <input type="radio" id="Estrangeira" name="seletor1">
+            <label for="Estrangeira">Estrangeira<br></label>
+            <input type="radio" id="Nacional" name="seletor1"> 
+            <label for="Nacional">Nacional<br></label>
+        </div>    
+        <div id="Formulario2API3"><br><h4>Qual dessas categorias você mais aprecia?<br><br></h4>
+            <input type="radio" id="Ficcao" name="seletor2"> 
+            <label for="Ficcao">Ficção<br></label>
+            <input type="radio" id="Psicologia" name="seletor2">
+            <label for="Psicologia">Psicologia<br></label>
+            <input type="radio" id="Saude" name="seletor2">
+            <label for="Saude">Saúde<br></label>
+        </div>  
+        <div id="exibirDadosLivro"></div>
+        <figure class="imagem">
+            <img id="imagemLivro" src="img/selecioneAlgo.png" alt="imagem de livro">
+        </figure>
+    </div>
+    <div id="api4"  class="opcoesBorda">
+        <label for="selecionadorDeVogais"><h2>Selecione uma vogal para filtrar os municípios com DDD 53:</h2><br></label>            
+        <select id="selecionadorDeVogais" name="selecionadorDeVogais">
+            <option value="Todos">Todos</option>
+            <option value="A">A</option>
+            <option value="E">E</option>
+            <option value="I">I</option>
+            <option value="O">O</option>
+            <option value="U">U</option>
+        </select>         
+        <div id="municipiosFiltrados"></div>
+        <div id="destructuring">
+            <div id="primeiroMuniciopio"></div>
+            <div id="segundoMuniciopio"></div>
+            <div id="penultimoMuniciopio"></div>
+            <div id="ultimoMuniciopio"></div>
+        </div>
+    </div>
+</main>
+
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
+
+<!-- validatores -->
